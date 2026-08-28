@@ -1,0 +1,12 @@
+flask
+flask-mysqldb
+python-dotenv
+flask-cors
+
+# flask: Crear aplicaciones web (API REST)
+# flask-mysqldb: conectar con bases de datos MySQL
+# python-dotenv: cargar variables de entorno desde un archivo .env
+#                env = environment = variables de entorno
+# flask-cors: permitir solicitudes CORS
+
+# pip install -r requirements.txt
