@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.CategoriaControllers import CategoriaControllers
+from controllers.CategoriaController import CategoriaControllers
 
 categoria_bp = Blueprint("Categoria", __name__)
 

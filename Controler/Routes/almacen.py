@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.AlmacenControllers import AlmacenControllers
+from controllers.AlmacenaController import AlmacenControllers
 
 almacen_bp = Blueprint("Almacen", __name__)
 

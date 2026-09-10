@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.RegistraServices import RegistraServices
+from Services.registraServices import RegistraServices
 
 
 class RegistraController:

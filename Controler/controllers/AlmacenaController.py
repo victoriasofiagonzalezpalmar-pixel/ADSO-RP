@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.AlmacenaServices import AlmacenaServices
+from Services.almacenaServices import AlmacenaServices
 
 
 class AlmacenaController:

@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.ProveedorServices import ProveedorServices
+from Services.proveedorServices import ProveedorServices
 
 
 class ProveedorController:

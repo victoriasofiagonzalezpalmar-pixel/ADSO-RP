@@ -1,5 +1,5 @@
 from flask import current_app, jsonify
-from Models.rejistra import rejistra
+from Models.registra import rejistra
 import uuid
 
 class rejistraServer:
