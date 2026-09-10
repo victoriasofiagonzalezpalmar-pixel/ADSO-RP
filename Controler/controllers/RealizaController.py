@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.RealizaServices import RealizaServices
+from Services.realizaServices import RealizaServices
 
 
 class RealizaController:

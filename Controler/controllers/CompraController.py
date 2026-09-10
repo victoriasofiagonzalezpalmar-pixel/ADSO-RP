@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.CompraServices import CompraServices
+from Services.compraServices import CompraServices
 
 
 class CompraController:

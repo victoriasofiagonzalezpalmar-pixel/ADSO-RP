@@ -1,5 +1,5 @@
 from flask import current_app, jsonify
-from Models.usario import usario
+from Models.usuario import usario
 import uuid
 
 class usarioServer:

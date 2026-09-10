@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.ClasificaServices import ClasificaServices
+from Services.clasificaServices import ClasificaServices
 
 
 class ClasificaController:

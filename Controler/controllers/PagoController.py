@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.PagosServices import PagosServices
+from Services.pagosServices import PagosServices
 
 
 class PagosController:

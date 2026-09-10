@@ -1,5 +1,5 @@
 from flask import current_app, jsonify
-from Models.Proveedor import Proveedor
+from Models.proveedor import Proveedor
 import uuid
 
 class proveedorServer:
