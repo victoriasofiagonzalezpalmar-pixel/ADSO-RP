@@ -1,22 +1,22 @@
 from flask import current_app, jsonify
 
-from Models.registra import rejistra
+from Models.registra import registra
 import uuid
 
-class rejistraServer:
+class registraServer:
 
     def add(cInfo):
-        uuid_rej = uuid.uuid4()
+        uuid_reg = uuid.uuid4()
         c = current_app.mysql.connection.cursor()
-        query = """INSERT INTO t_rejistra 
-        (rej_uuid, rej_usu_id, rej_com_id)
+        query = """INSERT INTO t_registra 
+        (reg_uuid, reg_usu_id, reg_com_id)
         VALUES (%s, %s, %s)"""
-        c.execute(query, (uuid_rej,))
+        c.execute(query, (uuid_reg,))
 
 
 from Models.registra import registra
 
-from Models.registra import rejistra
+from Models.registra import registra
 
 import uuid
 
@@ -37,7 +37,7 @@ class registraServer:
         data = {
             "id": id, 
 
-            "uuid": uuid_rej, 
+            "uuid": uuid_reg, 
 
             "uuid": uuid_reg, 
 
@@ -66,10 +66,10 @@ class registraServer:
     def read():
         c = current_app.mysql.connection.cursor()
 
-        query = "SELECT * FROM t_rejistra"
+        query = "SELECT * FROM t_registra"
         c.execute(query)
         data = c.fetchall()
-        rej = [rejistra(row[0], row[1], row[2], row[3]).to_dict() for row in data]
+        regg = [registra(row[0], row[1], row[2], row[3]).to_dict() for row in data]
 
         query = "SELECT * FROM t_registra"
         c.execute(query)
