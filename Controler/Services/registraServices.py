@@ -1,6 +1,6 @@
 from flask import current_app, jsonify
-<<<<<<< HEAD
-from Models.rejistra import rejistra
+
+from Models.registra import rejistra
 import uuid
 
 class rejistraServer:
@@ -11,13 +11,13 @@ class rejistraServer:
         query = """INSERT INTO t_rejistra 
         (rej_uuid, rej_usu_id, rej_com_id)
         VALUES (%s, %s, %s)"""
-        c.execute(query, (uuid_rej,
-=======
-<<<<<<<< HEAD:Controler/Services/rejistraServices.py
+        c.execute(query, (uuid_rej,))
+
+
 from Models.registra import registra
-========
+
 from Models.registra import rejistra
->>>>>>>> fc75b6e7c29ef8040b21aff71ad756d7a511aefa:Controler/Services/registraServices.py
+
 import uuid
 
 class registraServer:
@@ -29,18 +29,18 @@ class registraServer:
         (reg_uuid, reg_usu_id, reg_com_id)
         VALUES (%s, %s, %s)"""
         c.execute(query, (uuid_reg,
->>>>>>> fc75b6e7c29ef8040b21aff71ad756d7a511aefa
+
                  cInfo["Usu_Id"], cInfo["Com_Id"]))
         current_app.mysql.connection.commit()
 
         id = c.lastrowid
         data = {
             "id": id, 
-<<<<<<< HEAD
+
             "uuid": uuid_rej, 
-=======
+
             "uuid": uuid_reg, 
->>>>>>> fc75b6e7c29ef8040b21aff71ad756d7a511aefa
+
             "Usu_Id": cInfo["Usu_Id"], 
             "Com_Id": cInfo["Com_Id"]
         }
@@ -65,16 +65,16 @@ class registraServer:
   
     def read():
         c = current_app.mysql.connection.cursor()
-<<<<<<< HEAD
+
         query = "SELECT * FROM t_rejistra"
         c.execute(query)
         data = c.fetchall()
         rej = [rejistra(row[0], row[1], row[2], row[3]).to_dict() for row in data]
-=======
+
         query = "SELECT * FROM t_registra"
         c.execute(query)
         data = c.fetchall()
         reg = [registra(row[0], row[1], row[2], row[3]).to_dict() for row in data]
->>>>>>> fc75b6e7c29ef8040b21aff71ad756d7a511aefa
+
         print(data)
         

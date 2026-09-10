@@ -44,5 +44,5 @@ class proveedorServer:
         query = "SELECT * FROM t_proveedor"
         c.execute(query)
         data = c.fetchall()
-    prov = [Proveedor(row[0], row[1], row[2], row[3]).to_dict() for row in data]
+        prov = [Proveedor(row[0], row[1], row[2], row[3]).to_dict() for row in data]
         
