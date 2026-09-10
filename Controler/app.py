@@ -1,12 +1,12 @@
-from flask import flask
-from flask_mysqldb import MYSQL
-from config import config
+from flask import Flask
+from flask_mysqldb import MySQL
+from Config import Config
 from Routes import loadRoutes
 
-app = flask(__name__)
+app = Flask(__name__)
 
-app,config.from_object(config)
-mysql = MYSQL(app)
+app,Config.from_object(Config)
+mysql = MySQL(app)
 
 app.mysql = mysql
 
