@@ -41,6 +41,8 @@ class AlmacenaController:
         return jsonify({"mensaje": "Se actualizo correctamente", "data": x}), 200
 
     @staticmethod
-    def delete(id):
-        result = AlmacenaServices.delete(id)
-        return jsonify({"mensaje": "Se elimino correctamente", "data": result}), 200
+    def delete(uuid):
+        result = AlmacenaServices.delete(uuid)
+        if result ==408:
+            return jsonify({"mensaje":"no se encontro el registro"})
+            return jsonify({"mensaje": "Se elimino correctamente", "data": result}), 200
