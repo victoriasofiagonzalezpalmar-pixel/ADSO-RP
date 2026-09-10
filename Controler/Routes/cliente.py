@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.ClienteControllers import ClienteControllers
+from controllers.ClienteController import ClienteControllers
 
 cliente_bp = Blueprint("Cliente", __name__)
 

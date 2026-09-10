@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.DevolucionControllers import DevolucionControllers
+from controllers.DevolucionController import DevolucionControllers
 
 devolucion_bp = Blueprint("Devolucion", __name__)
 

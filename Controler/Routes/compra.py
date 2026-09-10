@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.CompraControllers import CompraControllers
+from controllers.CompraController import CompraControllers
 
 compra_bp = Blueprint("Compra", __name__)
 

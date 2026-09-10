@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.DescripcionControllers import DescripcionControllers
+from controllers.DescripcionController import DescripcionControllers
 
 descripcion_bp = Blueprint("Descripcion", __name__)
 
