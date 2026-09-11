@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.RegistraControllers import RegistraControllers
+from controllers.RegistraController import RegistraControllers
 
 registra_bp = Blueprint("Registra", __name__)
 

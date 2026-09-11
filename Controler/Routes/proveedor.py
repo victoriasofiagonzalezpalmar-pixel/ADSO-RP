@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.ProveedorControllers import ProveedorControllers
+from controllers.ProveedorController import ProveedorControllers
 
 proveedor_bp = Blueprint("Proveedor", __name__)
 

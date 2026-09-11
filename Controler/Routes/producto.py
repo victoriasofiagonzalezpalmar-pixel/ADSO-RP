@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.ProductoControllers import ProductoControllers
+from controllers.ProductoController import ProductoControllers
 
 producto_bp = Blueprint("Producto", __name__)
 

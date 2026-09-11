@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.UsuarioControllers import UsuarioControllers
+from controllers.UsuarioController import UsuarioControllers
 
 usuario_bp = Blueprint("Usuario", __name__)
 
