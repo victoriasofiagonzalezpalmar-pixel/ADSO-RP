@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.ClienteServices import ClienteServices
+from Services.clienteServices import ClienteServices
 
 
 class ClienteController:
@@ -7,6 +7,22 @@ class ClienteController:
     
     def read():
         data = ClienteServices.read()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         return jsonify({"mensaje": data}), 200
 
     

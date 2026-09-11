@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.DescripcionServices import DescripcionServices
+from Services.descripcionServices import DescripcionServices
 
 
 class DescripcionController:
