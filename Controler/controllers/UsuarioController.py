@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.UsuarioServices import UsuarioServices
+from Services.usuarioServices import UsuarioServices
 
 
 class UsuarioController:

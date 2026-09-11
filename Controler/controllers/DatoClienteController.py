@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from Services.DatoClienteServices import DatoClienteServices
+from Services.datoclienteServices import DatoClienteServices
 
 
 class DatoClienteController:
