@@ -35,10 +35,19 @@ class descripcionServer:
         return jsonify({"Mensaje": "Registrado exitosamente", "data": data}), 201
 
     def update():
-        pass
+        
 
-    def delete():
-        pass
+     def delete(uuid):
+        c = current_app.mysql.connection.cursor()
+        query = "DELETE FROM t_descripcion WHERE des_uuid = %s"
+        c .execute(query ,(uuid,))
+        current_app.mysql.connection.commit()
+        if c.rowcount == 0:
+            c.close()
+            return 404
+        c.close()
+        return 200
+    
 
     def read():
         c = current_app.mysql.connection.cursor()
