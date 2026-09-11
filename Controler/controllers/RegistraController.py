@@ -1,15 +1,15 @@
 from flask import jsonify, request
-from Services.registraServices import RegistraServices
+from Services.RegistraServices import RegistraServices
 
 
 class RegistraController:
 
-    @staticmethod
+    
     def read():
         data = RegistraServices.read()
         return jsonify({"mensaje": data}), 200
 
-    @staticmethod
+    
     def add():
         data = request.get_json(silent=True)
         if not data:
@@ -25,7 +25,7 @@ class RegistraController:
         x = RegistraServices.add(data)
         return jsonify({"mensaje": "Se registro correctamente", "data": x}), 200
 
-    @staticmethod
+    
     def update(id):
         body_data = request.get_json(silent=True)
         if not body_data:
@@ -40,7 +40,10 @@ class RegistraController:
         x = RegistraServices.update(id, body_data)
         return jsonify({"mensaje": "Se actualizo correctamente", "data": x}), 200
 
-    @staticmethod
-    def delete(id):
-        result = RegistraServices.delete(id)
-        return jsonify({"mensaje": "Se elimino correctamente", "data": result}), 200
+    
+    def delete(uuid):
+                x = RegistraServices.delete(uuid)
+                if x ==404:
+                    return jsonify({"mensaje":"no se encontro el registro"}), x
+                else:
+                    return jsonify({"mensaje": "Se elimino correctamente"}), x

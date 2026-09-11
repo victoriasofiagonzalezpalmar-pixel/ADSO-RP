@@ -1,15 +1,15 @@
 from flask import jsonify, request
-from Services.productoServices import ProductoServices
+from Services.ProductoServices import ProductoServices
 
 
 class ProductoController:
 
-    @staticmethod
+    
     def read():
         data = ProductoServices.read()
         return jsonify({"mensaje": data}), 200
 
-    @staticmethod
+    
     def add():
         data = request.get_json(silent=True)
         if not data:
@@ -25,7 +25,7 @@ class ProductoController:
         x = ProductoServices.add(data)
         return jsonify({"mensaje": "Se registro correctamente", "data": x}), 200
 
-    @staticmethod
+    
     def update(id):
         body_data = request.get_json(silent=True)
         if not body_data:
@@ -40,7 +40,10 @@ class ProductoController:
         x = ProductoServices.update(id, body_data)
         return jsonify({"mensaje": "Se actualizo correctamente", "data": x}), 200
 
-    @staticmethod
-    def delete(id):
-        result = ProductoServices.delete(id)
-        return jsonify({"mensaje": "Se elimino correctamente", "data": result}), 200
+    
+    def delete(uuid):
+                x = ProductoServices.delete(uuid)
+                if x ==404:
+                    return jsonify({"mensaje":"no se encontro el registro"}), x
+                else:
+                    return jsonify({"mensaje": "Se elimino correctamente"}), x
