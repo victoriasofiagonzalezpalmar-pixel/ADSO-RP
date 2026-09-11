@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.ClasificaControllers import ClasificaControllers
+from controllers.ClasificaController import ClasificaControllers
 
 clasifica_bp = Blueprint("Clasifica", __name__)
 

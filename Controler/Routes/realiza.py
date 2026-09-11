@@ -1,5 +1,5 @@
 from flask import Blueprint
-from Controllers.RealizaControllers import RealizaControllers
+from controllers.RealizaController import RealizaControllers
 
 realiza_bp = Blueprint("Realiza", __name__)
 
