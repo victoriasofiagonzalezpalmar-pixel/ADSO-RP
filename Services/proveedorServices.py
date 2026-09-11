@@ -1,5 +1,5 @@
 from flask import current_app, jsonify
-from Models.proveedor import Proveedor
+from Models.Proveedor import Proveedor
 import uuid
 
 class proveedorServer:
@@ -34,15 +34,24 @@ class proveedorServer:
         return jsonify({"Mensaje": "Registrado exitosamente", "data": data}), 201
 
     def update():
-        pass
+        
 
-    def delete():
-        pass
-
-    def read():
+     def delete(uuid):
         c = current_app.mysql.connection.cursor()
-        query = "SELECT * FROM t_proveedor"
-        c.execute(query)
-        data = c.fetchall()
-        prov = [Proveedor(row[0], row[1], row[2], row[3]).to_dict() for row in data]
+        query =  "DELETE FROM t_proveedor WHERE edor_uuid = %s "
+        c .execute(query ,(uuid,))
+        current_app.mysql.connection.commit()
+        if c.rowcount == 0:
+            c.close()
+            return 404
+        c.close()
+        return 200
+
+def read():
+    c = current_app.mysql.connection.cursor()
+    query = "SELECT * FROM t_proveedor"
+    c.execute(query)
+    data = c.fetchall()
+    prov = [Proveedor(row[0], row[1], row[2], row[3]).to_dict() for row in data]
+    print (data)
         
