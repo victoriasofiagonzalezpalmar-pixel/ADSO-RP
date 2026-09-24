@@ -3,15 +3,7 @@ from Models.compra import Compra
 import uuid
 
 class CompraServices:
-    @staticmethod
-    def read():
-        try:
-            c = current_app.mysql.connection.cursor()
-            c.execute("SELECT * FROM t_compra")
-            rows = c.fetchall()
-            return [Compra(row[0], row[1], row[2], row[3], row[4], row[5], row[6]).to_dict() for row in rows]
-        except Exception as e:
-            raise RuntimeError(f"Error en READ t_compra: {str(e)}")
+   
 
     @staticmethod
     def add(cInfo):
@@ -32,24 +24,54 @@ class CompraServices:
             raise RuntimeError(f"Error en INSERT t_compra: {str(e)}")
 
     @staticmethod
-    def update(rid, cInfo):
-        try:
-            c = current_app.mysql.connection.cursor()
-            query = "UPDATE t_compra SET com_numero_compra = %s, com_monto_total = %s, com_fecha_compra = %s, com_pag_id = %s, com_cli_id = %s WHERE com_id = %s"
-            c.execute(query, (cInfo["numero_compra"], cInfo["monto_total"], cInfo["fecha_compra"], cInfo["pag_id"], cInfo["cli_id"], rid))
-            current_app.mysql.connection.commit()
-            if c.rowcount == 0:
-                return None
-            return {"id": rid, **cInfo}
-        except Exception as e:
-            raise RuntimeError(f"Error en UPDATE t_compra: {str(e)}")
-
-    @staticmethod
     def delete(uuid):
+    
+            c = current_app.mysql.connection.cursor()
+            query ="DELETE FROM t_com WHERE com_uuid = %s"
+            c.execute(query, (uuid,))
+            current_app.mysql.connection.commit()
+            if c.rowcount ==0:
+                c.close()
+                return 404
+
+                c.close()
+                return 200
+        
+def read():
         try:
             c = current_app.mysql.connection.cursor()
-            c.execute("DELETE FROM t_compra WHERE com_uuid = %s", (uuid,))
-            current_app.mysql.connection.commit()
-            return c.rowcount
-        except Exception as e:
-            raise RuntimeError(f"Error en DELETE t_compra (por uuid): {str(e)}")
+            query =SELECT * FROM t_compra
+           c.execute(query)
+           data =c.fetchall()
+           print(data)
+           c.close()
+           
+            x =  [Compra(row[0], row[1], row[2], row[3], row[4], row[5], row[6]).to_dict() for w in data]
+        return x
+ 
+ def update(rid, cInfo):
+         try:
+             c = current_app.mysql.connection.cursor()
+             query = """ 
+             
+              UPDATE t_compra SET com_numero_compra = %s, com_monto_total = %s, com_fecha_compra = %s, com_pag_id = %s, com_cli_id = %s WHERE com_id = %s"
+ 
+             """
+             c.execute(query, (cInfo["numero_compra"], cInfo["monto_total"], cInfo["fecha_compra"], cInfo["pag_id"], cInfo["cli_id"], rid))
+ 
+             current_app.mysql.connection.commit()
+             if c.rowcount == 0:
+                 c.close()
+                 return 404
+ 
+                 c.close()
+                 
+             return 200
+             c.close()
+             data 
+ 
+                 
+             return {"id": rid, **cInfo}
+         except Exception as e:
+             raise RuntimeError(f"Error en UPDATE t_compra: {str(e)}")
+ 
