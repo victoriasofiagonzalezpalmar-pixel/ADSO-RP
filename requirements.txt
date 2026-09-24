@@ -1,5 +1,4 @@
 flask
-flask-mysqul
-python_dotenv
-gunicorn
-mysqlcliente
+flask-mysqldb
+mysqlclient
+python-dotenv
