@@ -1,5 +1,5 @@
 from flask import current_app
-from Models.pagos import Pagos
+from Models.pago import Pagos
 import uuid
 
 class PagosServices:

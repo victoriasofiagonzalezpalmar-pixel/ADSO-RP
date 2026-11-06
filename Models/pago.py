@@ -1,4 +1,4 @@
-class Pagos:
+class Pago:
     def __init__(self, pag_id, pag_uuid, pag_monto, pag_metodo_transaccion):
         self.pag_id = pag_id
         self.pag_uuid = pag_uuid
